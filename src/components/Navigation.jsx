@@ -1,69 +1,67 @@
-import { useState, useRef } from 'react';
-import gsap from 'gsap';
-import { Menu, X } from 'lucide-react';
-import { useGSAP } from '@gsap/react';
-import logo from '../assets/logo.png';
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { Menu, X } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import logo from "../assets/logo.png";
 
 const navItems = [
-  { label: 'Home',     href: '#hero'     },
-  { label: 'About',    href: '#about'    },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills',   href: '#skills'   },
-  { label: 'Contact',  href: '#contact'  },
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ];
 
 function NavLink({ item, isActive, onClick }) {
-  const linkRef   = useRef(null);
-  const topRef    = useRef(null);
-  const botRef    = useRef(null);
-  const glowRef   = useRef(null);
+  const linkRef = useRef(null);
+  const topRef = useRef(null);
+  const botRef = useRef(null);
+  const glowRef = useRef(null);
 
- 
   useGSAP(() => {
     const link = linkRef.current;
-    const top  = topRef.current;
-    const bot  = botRef.current;
+    const top = topRef.current;
+    const bot = botRef.current;
     const glow = glowRef.current;
 
     const enter = () => {
-      
       gsap.to(top, {
-        y: '-100%',
+        y: "-100%",
         duration: 0.35,
-        ease: 'power3.in',
+        ease: "power3.in",
       });
-      
+
       gsap.to(bot, {
-        y: '0%',
+        y: "0%",
         duration: 0.35,
-        ease: 'power3.out',
+        ease: "power3.out",
         delay: 0.05,
       });
-     
+
       gsap.to(glow, {
         opacity: 1,
         scale: 1,
         duration: 0.3,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
-      
+
       gsap.to(link, {
         y: -2,
         duration: 0.3,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     };
 
     const leave = () => {
       gsap.to(top, {
-        y: '0%',
+        y: "0%",
         duration: 0.35,
-        ease: 'power3.out',
+        ease: "power3.out",
       });
       gsap.to(bot, {
-        y: '100%',
+        y: "100%",
         duration: 0.35,
-        ease: 'power3.in',
+        ease: "power3.in",
       });
       gsap.to(glow, {
         opacity: 0,
@@ -73,15 +71,15 @@ function NavLink({ item, isActive, onClick }) {
       gsap.to(link, {
         y: 0,
         duration: 0.4,
-        ease: 'elastic.out(1,0.5)',
+        ease: "elastic.out(1,0.5)",
       });
     };
 
-    link.addEventListener('mouseenter', enter);
-    link.addEventListener('mouseleave', leave);
+    link.addEventListener("mouseenter", enter);
+    link.addEventListener("mouseleave", leave);
     return () => {
-      link.removeEventListener('mouseenter', enter);
-      link.removeEventListener('mouseleave', leave);
+      link.removeEventListener("mouseenter", enter);
+      link.removeEventListener("mouseleave", leave);
     };
   }, []);
 
@@ -89,10 +87,13 @@ function NavLink({ item, isActive, onClick }) {
     <a
       ref={linkRef}
       href={item.href}
-      onClick={(e) => { e.preventDefault(); onClick(item.href); }}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(item.href);
+      }}
       data-cursor-hover
       className="relative px-3 py-1.5 overflow-hidden"
-      style={{ display: 'inline-block' }}
+      style={{ display: "inline-block" }}
     >
       {/* ambient glow behind the text */}
       <span
@@ -100,8 +101,8 @@ function NavLink({ item, isActive, onClick }) {
         className="pointer-events-none absolute inset-0 rounded-lg"
         style={{
           background: isActive
-            ? 'radial-gradient(ellipse at center, rgba(0,240,255,0.18) 0%, transparent 70%)'
-            : 'radial-gradient(ellipse at center, rgba(0,240,255,0.12) 0%, transparent 70%)',
+            ? "radial-gradient(ellipse at center, rgba(0,240,255,0.18) 0%, transparent 70%)"
+            : "radial-gradient(ellipse at center, rgba(0,240,255,0.12) 0%, transparent 70%)",
           opacity: isActive ? 1 : 0,
           scale: isActive ? 1 : 0.6,
         }}
@@ -115,15 +116,15 @@ function NavLink({ item, isActive, onClick }) {
       {/* text wrapper — clips the sliding labels */}
       <span
         className="relative block overflow-hidden"
-        style={{ height: '1.2em', lineHeight: '1.2em' }}
+        style={{ height: "1.2em", lineHeight: "1.2em" }}
       >
         {/* TOP label (visible by default) */}
         <span
           ref={topRef}
           className="block text-sm font-medium tracking-wide"
           style={{
-            color: isActive ? '#fff' : 'rgba(255,255,255,0.5)',
-            willChange: 'transform',
+            color: isActive ? "#fff" : "rgba(255,255,255,0.5)",
+            willChange: "transform",
           }}
         >
           {item.label}
@@ -135,10 +136,10 @@ function NavLink({ item, isActive, onClick }) {
           aria-hidden="true"
           className="absolute inset-0 block text-sm font-medium tracking-wide"
           style={{
-            color: '#00f0ff',
-            textShadow: '0 0 12px rgba(0,240,255,0.9)',
-            transform: 'translateY(100%)',
-            willChange: 'transform',
+            color: "#00f0ff",
+            textShadow: "0 0 12px rgba(0,240,255,0.9)",
+            transform: "translateY(100%)",
+            willChange: "transform",
           }}
         >
           {item.label}
@@ -151,9 +152,10 @@ function NavLink({ item, isActive, onClick }) {
                    transition-all duration-300 ease-out
                    group-hover:w-4/5"
         style={{
-          width: isActive ? '70%' : '0%',
-          background: 'linear-gradient(90deg, transparent, #00f0ff, transparent)',
-          boxShadow: '0 0 6px rgba(0,240,255,0.8)',
+          width: isActive ? "70%" : "0%",
+          background:
+            "linear-gradient(90deg, transparent, #00f0ff, transparent)",
+          boxShadow: "0 0 6px rgba(0,240,255,0.8)",
         }}
       />
     </a>
@@ -162,15 +164,15 @@ function NavLink({ item, isActive, onClick }) {
 
 /* main navigation*/
 export const Navigation = () => {
-  const [isScrolled,       setIsScrolled]       = useState(false);
-  const [activeSection,    setActiveSection]     = useState('hero');
-  const [isMobileMenuOpen, setIsMobileMenuOpen]  = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navRef        = useRef(null);
+  const navRef = useRef(null);
   const mobileMenuRef = useRef(null);
-  const hireBtnRef    = useRef(null);
-  const logoRef       = useRef(null);
-  const burgerRef     = useRef(null);
+  const hireBtnRef = useRef(null);
+  const logoRef = useRef(null);
+  const burgerRef = useRef(null);
 
   /* ── scroll detection ── */
   useGSAP(() => {
@@ -185,37 +187,43 @@ export const Navigation = () => {
         }
       }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   /* ── entrance animation ── */
   useGSAP(() => {
-    const tl = gsap.timeline({ delay: 1.2, defaults: { ease: 'expo.out' } });
+    const tl = gsap.timeline({ delay: 1.2, defaults: { ease: "expo.out" } });
 
     tl.fromTo(
       logoRef.current,
       { x: -10, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.1 }
+      { x: 0, opacity: 1, duration: 0.1 },
     )
-    .fromTo(
-      burgerRef.current,
-      { x: 30, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.8 },
-      0
-    )
-    .fromTo(
-      navRef.current.querySelectorAll('.nav-link-wrap'),
-      { y: -24, opacity: 0 },
-      { y: 0,   opacity: 1, duration: 0.6, stagger: 0.07, ease: 'back.out(1.6)' },
-      0.25
-    )
-    .fromTo(
-      hireBtnRef.current,
-      { x: 24, opacity: 0, scale: 0.8 },
-      { x: 0,  opacity: 1, scale: 1,   duration: 0.6, ease: 'back.out(2)' },
-      0.4
-    );
+      .fromTo(
+        burgerRef.current,
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8 },
+        0,
+      )
+      .fromTo(
+        navRef.current.querySelectorAll(".nav-link-wrap"),
+        { y: -24, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.07,
+          ease: "back.out(1.6)",
+        },
+        0.25,
+      )
+      .fromTo(
+        hireBtnRef.current,
+        { x: 24, opacity: 0, scale: 0.8 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" },
+        0.4,
+      );
   }, []);
 
   /* hire-me  */
@@ -224,22 +232,22 @@ export const Navigation = () => {
     if (!btn) return;
 
     const onMove = (e) => {
-      const r  = btn.getBoundingClientRect();
+      const r = btn.getBoundingClientRect();
       gsap.to(btn, {
-        x: (e.clientX - r.left - r.width  / 2) * 0.36,
-        y: (e.clientY - r.top  - r.height / 2) * 0.36,
+        x: (e.clientX - r.left - r.width / 2) * 0.36,
+        y: (e.clientY - r.top - r.height / 2) * 0.36,
         duration: 0.3,
-        ease: 'power2.out',
+        ease: "power2.out",
       });
     };
     const onLeave = () =>
-      gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' });
+      gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.5)" });
 
-    btn.addEventListener('mousemove', onMove);
-    btn.addEventListener('mouseleave', onLeave);
+    btn.addEventListener("mousemove", onMove);
+    btn.addEventListener("mouseleave", onLeave);
     return () => {
-      btn.removeEventListener('mousemove', onMove);
-      btn.removeEventListener('mouseleave', onLeave);
+      btn.removeEventListener("mousemove", onMove);
+      btn.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
@@ -250,18 +258,18 @@ export const Navigation = () => {
       gsap.fromTo(
         mobileMenuRef.current,
         { opacity: 0, y: -16, scale: 0.97 },
-        { opacity: 1, y: 0,   scale: 1, duration: 0.35, ease: 'expo.out' }
+        { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "expo.out" },
       );
       gsap.fromTo(
-        mobileMenuRef.current.querySelectorAll('.mob-item'),
+        mobileMenuRef.current.querySelectorAll(".mob-item"),
         { opacity: 0, x: -14 },
-        { opacity: 1, x: 0, duration: 0.3, stagger: 0.055, delay: 0.1 }
+        { opacity: 1, x: 0, duration: 0.3, stagger: 0.055, delay: 0.1 },
       );
     }
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (href) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
@@ -270,25 +278,27 @@ export const Navigation = () => {
       {/* navBAr */}
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'py-3 glass-strong' : 'py-2 bg-transparent'
+        className={` z-50 transition-all duration-500 ${
+          isScrolled ? "py-3 glass-strong" : "py-2 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-
             {/*logo*/}
             <a
               ref={logoRef}
               href="#hero"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("#hero");
+              }}
               className="flex items-center group transition-transform duration-300 hover:scale-105"
               data-cursor-hover
               style={{ opacity: 0 }}
             >
-              <img 
-                src={logo} 
-                alt="Samir Ibourki Logo" 
+              <img
+                src={logo}
+                alt="Samir Ibourki Logo"
                 className="h-13 md:h-19 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,212,255,0.3)]"
               />
             </a>
@@ -296,7 +306,11 @@ export const Navigation = () => {
             {/* desktop nav*/}
             <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => (
-                <div key={item.href} className="nav-link-wrap" style={{ opacity: 0 }}>
+                <div
+                  key={item.href}
+                  className="nav-link-wrap"
+                  style={{ opacity: 0 }}
+                >
                   <NavLink
                     item={item}
                     isActive={activeSection === item.href.slice(1)}
@@ -307,22 +321,29 @@ export const Navigation = () => {
             </div>
 
             {/*hire me*/}
-            <div className="hidden md:block" style={{ opacity: 0 }} ref={hireBtnRef}>
+            <div
+              className="hidden md:block"
+              style={{ opacity: 0 }}
+              ref={hireBtnRef}
+            >
               <a
                 href="#contact"
-                onClick={(e) => { e.preventDefault(); scrollToSection('#contact'); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("#contact");
+                }}
                 data-cursor-hover
                 className="relative overflow-hidden inline-flex items-center gap-1.5
                            px-5 py-2 rounded-full text-sm font-medium text-white
-                           border border-cyan-400/40 bg-cyan-400/[0.06]
+                           border border-cyan-400/40 bg-cyan-400/6
                            transition-[border-color,background] duration-300
-                           hover:border-cyan-400/80 hover:bg-cyan-400/[0.12]
+                           hover:border-cyan-400/80 hover:bg-cyan-400/12
                            group will-change-transform"
               >
                 {/* moving shimmer */}
                 <span
                   className="absolute inset-0 rounded-full
-                             bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent
+                             bg-linear-to-rrom-transparent via-cyan-400/10 to-transparent
                              -translate-x-full group-hover:translate-x-full
                              transition-transform duration-700 ease-in-out"
                 />
@@ -344,9 +365,11 @@ export const Navigation = () => {
               data-cursor-hover
               style={{ opacity: 0 }}
             >
-              {isMobileMenuOpen
-                ? <X    className="w-4 h-4 text-cyan-400" />
-                : <Menu className="w-4 h-4" />}
+              {isMobileMenuOpen ? (
+                <X className="w-4 h-4 text-cyan-400" />
+              ) : (
+                <Menu className="w-4 h-4" />
+              )}
             </button>
           </div>
         </div>
@@ -356,12 +379,12 @@ export const Navigation = () => {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="fixed inset-x-4 top-[4.5rem] z-40 md:hidden"
+          className="fixed inset-x-4 top-18 z-40 md:hidden"
           style={{ opacity: 0 }}
         >
           <div
             className="glass-strong rounded-2xl p-3 space-y-1
-                       border border-white/[0.08]"
+                       border border-white/8"
           >
             {navItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
@@ -369,20 +392,27 @@ export const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }}
                   className={`mob-item flex items-center gap-3 px-4 py-3 rounded-xl
                                text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? 'bg-white/[0.08] text-white'
-                      : 'text-white/50 hover:text-white hover:bg-white/[0.05]'
-                  }`}
+                                 isActive
+                                   ? "bg-white/8 text-white"
+                                   : "text-white/50 hover:text-white hover:bg-white/5"
+                               }`}
                 >
                   {/* colored dot */}
                   <span
-                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors duration-300"
+                    className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors duration-300"
                     style={{
-                      background: isActive ? '#00f0ff' : 'rgba(255,255,255,0.2)',
-                      boxShadow:  isActive ? '0 0 6px rgba(0,240,255,0.9)' : 'none',
+                      background: isActive
+                        ? "#00f0ff"
+                        : "rgba(255,255,255,0.2)",
+                      boxShadow: isActive
+                        ? "0 0 6px rgba(0,240,255,0.9)"
+                        : "none",
                     }}
                   />
                   {item.label}
@@ -394,10 +424,13 @@ export const Navigation = () => {
             <div className="mob-item pt-2 mt-1 border-t border-white/[0.07]">
               <a
                 href="#contact"
-                onClick={(e) => { e.preventDefault(); scrollToSection('#contact'); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("#contact");
+                }}
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl
                            text-sm font-medium text-cyan-950
-                           bg-gradient-to-r from-cyan-400 to-cyan-300
+                           bg-linear-to-r from-cyan-400 to-cyan-300
                            hover:from-cyan-300 hover:to-cyan-200 transition-all duration-300"
               >
                 Hire Me
