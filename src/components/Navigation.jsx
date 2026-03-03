@@ -193,7 +193,7 @@ export const Navigation = () => {
 
   /* ── entrance animation ── */
   useGSAP(() => {
-    const tl = gsap.timeline({ delay: 1.2, defaults: { ease: "expo.out" } });
+    const tl = gsap.timeline({ delay: 0.5, defaults: { ease: "expo.out" } });
 
     tl.fromTo(
       logoRef.current,
@@ -278,8 +278,10 @@ export const Navigation = () => {
       {/* navBAr */}
       <nav
         ref={navRef}
-        className={` z-50 transition-all duration-500 ${
-          isScrolled ? "py-3 glass-strong" : "py-2 bg-transparent"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? "py-3 glass-strong border-b border-white/5 shadow-2xl"
+            : "py-1 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -299,7 +301,7 @@ export const Navigation = () => {
               <img
                 src={logo}
                 alt="Samir Ibourki Logo"
-                className="h-13 md:h-19 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,212,255,0.3)]"
+                className="h-13 md:h-15 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,212,255,0.3)]"
               />
             </a>
 
@@ -379,7 +381,7 @@ export const Navigation = () => {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="fixed inset-x-4 top-18 z-40 md:hidden"
+          className="fixed inset-x-4 top-24 z-40 md:hidden"
           style={{ opacity: 0 }}
         >
           <div
