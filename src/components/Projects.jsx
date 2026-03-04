@@ -60,7 +60,7 @@ export function Projects() {
           "-=0.2",
         );
 
-        // Progress tracking for mobile
+        // progress tracking for mobile
         ScrollTrigger.create({
           trigger: sectionRef.current,
           start: "top center",
@@ -148,7 +148,7 @@ export function Projects() {
           ref={stickyRef}
           className="projects-sticky md:sticky top-0 md:h-screen md:overflow-hidden flex flex-col justify-center"
         >
-          {/*header container */}
+          {/* header container */}
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center shrink-0 mb-8 md:mb-12">
             <div ref={headerRef}>
               <div className="flex items-center justify-center gap-2 mb-4">
@@ -162,7 +162,7 @@ export function Projects() {
                 <span className="gradient-text">PROJECTS</span>
               </h2>
 
-              {/* Scroll Progress Indicator */}
+              {/* scroll progress indicator */}
               <div className="flex flex-col items-center gap-2">
                 <div className="w-48 h-0.5 bg-white/5 rounded-full relative overflow-hidden">
                   <div

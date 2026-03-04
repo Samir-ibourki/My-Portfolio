@@ -97,7 +97,7 @@ export const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden bg-cyber-dark pt-20 md:pt-24"
     >
-      {/* Glows */}
+      {/* glows */}
       <div className="absolute inset-0 z-0">
         <div className="absolute -top-10 -left-10 w-72 h-72 bg-neon-blue/15 rounded-full blur-[120px] animate-pulse-glow" />
         <div
@@ -106,7 +106,7 @@ export const Hero = () => {
         />
       </div>
 
-      {/* Grid Pattern */}
+      {/* grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_65%,transparent_100%)]" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

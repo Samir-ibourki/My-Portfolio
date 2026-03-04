@@ -111,6 +111,7 @@ export const Skills = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* header */}
         <div ref={headerRef} className="text-center mb-14">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-neon-cyan" />
@@ -293,6 +294,7 @@ export const Skills = () => {
           </div>
         </div>
 
+        {/* skill cards */}
         <div
           ref={cardsRef}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-5"
