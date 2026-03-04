@@ -42,7 +42,7 @@ export function ProjectCard({ project }) {
                  h-120 md:h-[clamp(440px,55vh,560px)]"
       onClick={() => window.open(project.link, "_blank")}
     >
-      {/* Background Image */}
+      {/* background image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={project.image}
@@ -55,11 +55,11 @@ export function ProjectCard({ project }) {
         />
       </div>
 
-      {/* Overlays */}
+      {/* overlays */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/80 z-1" />
       <div className="absolute inset-0 bg-neon-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-1" />
 
-      {/* Content */}
+      {/* content */}
       <div className="relative z-10 h-full p-6 md:p-8 flex flex-col justify-between">
         <div className="flex justify-between items-start">
           <span
@@ -98,7 +98,7 @@ export function ProjectCard({ project }) {
         </div>
       </div>
 
-      {/* Click Indicator */}
+      {/* click indicator */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
                     opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"

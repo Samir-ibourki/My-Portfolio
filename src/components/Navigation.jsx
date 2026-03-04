@@ -95,7 +95,7 @@ function NavLink({ item, isActive, onClick }) {
       className="relative px-3 py-1.5 overflow-hidden"
       style={{ display: "inline-block" }}
     >
-      {/* ambient glow behind the text */}
+      {/* ambient glow */}
       <span
         ref={glowRef}
         className="pointer-events-none absolute inset-0 rounded-lg"
@@ -113,12 +113,12 @@ function NavLink({ item, isActive, onClick }) {
         <span className="absolute inset-0 rounded-lg bg-white/[0.07] border border-white/10" />
       )}
 
-      {/* text wrapper — clips the sliding labels */}
+      {/* text wrapper */}
       <span
         className="relative block overflow-hidden"
         style={{ height: "1.2em", lineHeight: "1.2em" }}
       >
-        {/* TOP label (visible by default) */}
+        {/* top label */}
         <span
           ref={topRef}
           className="block text-sm font-medium tracking-wide"
@@ -130,7 +130,7 @@ function NavLink({ item, isActive, onClick }) {
           {item.label}
         </span>
 
-        {/* BOTTOM label (cyan, slides up on hover) */}
+        {/* bottom label */}
         <span
           ref={botRef}
           aria-hidden="true"
@@ -174,7 +174,7 @@ export const Navigation = () => {
   const logoRef = useRef(null);
   const burgerRef = useRef(null);
 
-  /* ── scroll detection ── */
+  /* scroll detection */
   useGSAP(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
@@ -191,7 +191,7 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ── entrance animation ── */
+  /* entrance animation */
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.5, defaults: { ease: "expo.out" } });
 
@@ -226,7 +226,7 @@ export const Navigation = () => {
       );
   }, []);
 
-  /* hire-me  */
+  /* hire me */
   useGSAP(() => {
     const btn = hireBtnRef.current;
     if (!btn) return;
@@ -251,7 +251,7 @@ export const Navigation = () => {
     };
   }, []);
 
-  /* ─ mobile menu animation  */
+  /* mobile menu animation */
   useGSAP(() => {
     if (!mobileMenuRef.current) return;
     if (isMobileMenuOpen) {
@@ -275,7 +275,7 @@ export const Navigation = () => {
 
   return (
     <>
-      {/* navBAr */}
+      {/* navbar */}
       <nav
         ref={navRef}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
@@ -359,7 +359,7 @@ export const Navigation = () => {
               </a>
             </div>
 
-            {/* ── BURGER ── */}
+            {/* burger */}
             <button
               ref={burgerRef}
               onClick={() => setIsMobileMenuOpen((o) => !o)}

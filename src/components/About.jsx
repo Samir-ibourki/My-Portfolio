@@ -22,7 +22,7 @@ export const About = () => {
         },
       });
 
-      //header reveal
+      // header reveal
       tl.fromTo(
         headerRef.current?.children || [],
         { opacity: 0, y: 30, scale: 0.95 },
@@ -35,7 +35,7 @@ export const About = () => {
           ease: "expo.out",
         },
       )
-        //content & image reveal
+        // content & image reveal
         .fromTo(
           [contentRef.current, imageRef.current],
           { opacity: 0, y: 50 },
@@ -74,7 +74,7 @@ export const About = () => {
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/*  header */}
+        {/* header */}
         <div ref={headerRef} className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-neon-cyan" />
@@ -88,9 +88,9 @@ export const About = () => {
           </h2>
         </div>
 
-        {/* Main Content Grid */}
+        {/* main content */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-36 items-center">
-          {/* Content Section */}
+          {/* content section */}
           <div ref={contentRef} className="space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold">
               I'm <span className="text-neon-blue">Samir Ibourki</span>
@@ -116,7 +116,7 @@ export const About = () => {
               challenging projects.
             </p>
 
-            {/* Tech Stack Pills */}
+            {/* tech stack */}
             <div className="pt-4">
               <p className="text-sm text-muted-foreground mb-3">Tech Stack:</p>
               <div className="flex flex-wrap gap-2">
@@ -169,7 +169,7 @@ export const About = () => {
               {/* glow effect */}
               <div className="absolute -inset-4 bg-linear-to-r from-neon-blue via-neon-magenta to-neon-cyan rounded-3xl opacity-30 blur-2xl animate-pulse-glow" />
 
-              {/* photo Contaner */}
+              {/* photo container */}
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden glass-card">
                 <div className="w-full h-full flex flex-col items-center justify-center bg-cyber-card">
                   <img className="w-full" src={me} alt="me" />
