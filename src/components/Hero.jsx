@@ -169,16 +169,20 @@ export const Hero = () => {
             ref={chipsRef}
             className="mt-8 flex flex-wrap justify-center gap-2 text-[11px]"
           >
-            {["React", "Node.js", "React Native", "Express", "PostgreSQL"].map(
-              (t) => (
-                <span
-                  key={t}
-                  className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60"
-                >
-                  {t}
-                </span>
-              ),
-            )}
+            {[
+              "React.js",
+              "Node.js",
+              "React Native",
+              "Express",
+              "PostgreSQL",
+            ].map((t) => (
+              <span
+                key={t}
+                className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60"
+              >
+                {t}
+              </span>
+            ))}
           </div>
         </div>
       </div>
