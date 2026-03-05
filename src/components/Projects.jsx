@@ -141,7 +141,7 @@ export function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative overflow-hidden py-2 "
+      className="relative overflow-hidden py-2 md:mt-4 "
     >
       <div ref={wrapperRef} className="projects-pin-wrapper relative">
         <div
@@ -154,7 +154,7 @@ export function Projects() {
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Sparkles className="w-4 h-4 text-neon-cyan" />
                 <span className="text-xs font-mono text-muted-foreground tracking-wider uppercase">
-                  // 02 — SELECTED WORK
+                  SELECTED WORK
                 </span>
                 <Sparkles className="w-4 h-4 text-neon-magenta" />
               </div>
@@ -204,13 +204,14 @@ export function Projects() {
               data-cursor-hover
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, {
-                  boxShadow: '0 0 40px rgba(0,212,255,0.15), 0 0 80px rgba(255,0,255,0.08)',
+                  boxShadow:
+                    "0 0 40px rgba(0,212,255,0.15), 0 0 80px rgba(255,0,255,0.08)",
                   duration: 0.4,
                 });
               }}
               onMouseLeave={(e) => {
                 gsap.to(e.currentTarget, {
-                  boxShadow: 'none',
+                  boxShadow: "none",
                   duration: 0.4,
                 });
               }}
@@ -218,19 +219,22 @@ export function Projects() {
               <div className="hidden md:flex w-20 h-20 rounded-2xl glass-card items-center justify-center mb-2 group-hover:neon-glow transition-all duration-500">
                 <Github className="w-10 h-10 text-neon-blue group-hover:text-neon-cyan transition-colors duration-300" />
               </div>
-              
+
               <div className="flex flex-col items-center gap-2">
                 <h3 className="text-xl md:text-2xl font-bold gradient-text text-center">
                   View All Projects
                 </h3>
-                <p className="hidden md:block text-sm text-muted-foreground text-center max-w-[250px]">
-                  Explore more of my work and open-source contributions on GitHub
+                <p className="hidden md:block text-sm text-muted-foreground text-center max-w-62.5">
+                  Explore more of my work and open-source contributions on
+                  GitHub
                 </p>
               </div>
 
               <div className="flex items-center gap-2 px-6 py-3 rounded-full border border-neon-blue/30 bg-neon-blue/5 group-hover:border-neon-blue/60 group-hover:bg-neon-blue/10 transition-all duration-300">
                 <Github className="md:hidden w-4 h-4 text-neon-blue" />
-                <span className="text-sm font-medium text-neon-blue">Visit GitHub</span>
+                <span className="text-sm font-medium text-neon-blue">
+                  Visit GitHub
+                </span>
                 <ExternalLink className="w-4 h-4 text-neon-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
               </div>
             </a>
