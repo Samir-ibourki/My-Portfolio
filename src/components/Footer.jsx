@@ -104,6 +104,17 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // handle email click based on device
+  const handleEmailClick = (e, email) => {
+    e.preventDefault();
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = `mailto:${email}`;
+    } else {
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
+    }
+  };
+
   return (
     <footer
       ref={footerRef}
@@ -163,7 +174,12 @@ export const Footer = () => {
               <a
                 key={social.label}
                 href={social.href}
-                target={social.href.startsWith('mailto:') ? '_self' : '_blank'}
+                target={social.href.startsWith('https') ? '_blank' : '_self'}
+                onClick={(e) => {
+                    if (social.label === 'Email') {
+                        handleEmailClick(e, 'samiribourki7@gmail.com');
+                    }
+                }}
                 rel="noopener noreferrer"
                 className="social-icon w-12 h-12 rounded-xl glass-card flex items-center justify-center transition-all duration-300"
                 onMouseEnter={(e) => handleSocialHover(e, true, social.color)}
