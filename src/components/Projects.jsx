@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROJECTS } from "../utils/data";
 import { ProjectCard } from "./ProjectCard";
-import { Sparkles } from "lucide-react";
+import { Sparkles, ExternalLink, Github } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -194,6 +194,46 @@ export function Projects() {
                 onBurst={burstParticles}
               />
             ))}
+
+            {/* view all projects cta */}
+            <a
+              href="https://github.com/Samir-ibourki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="proj-card shrink-0 w-full max-w-[320px] md:w-[clamp(320px,38vw,480px)] h-auto md:h-[clamp(440px,55vh,560px)] rounded-2xl md:rounded-3xl glass-card gradient-border flex flex-col items-center justify-center gap-4 md:gap-6 p-6 md:p-8 group transition-all duration-500 hover:scale-[1.02]"
+              data-cursor-hover
+              onMouseEnter={(e) => {
+                gsap.to(e.currentTarget, {
+                  boxShadow: '0 0 40px rgba(0,212,255,0.15), 0 0 80px rgba(255,0,255,0.08)',
+                  duration: 0.4,
+                });
+              }}
+              onMouseLeave={(e) => {
+                gsap.to(e.currentTarget, {
+                  boxShadow: 'none',
+                  duration: 0.4,
+                });
+              }}
+            >
+              <div className="hidden md:flex w-20 h-20 rounded-2xl glass-card items-center justify-center mb-2 group-hover:neon-glow transition-all duration-500">
+                <Github className="w-10 h-10 text-neon-blue group-hover:text-neon-cyan transition-colors duration-300" />
+              </div>
+              
+              <div className="flex flex-col items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-bold gradient-text text-center">
+                  View All Projects
+                </h3>
+                <p className="hidden md:block text-sm text-muted-foreground text-center max-w-[250px]">
+                  Explore more of my work and open-source contributions on GitHub
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 px-6 py-3 rounded-full border border-neon-blue/30 bg-neon-blue/5 group-hover:border-neon-blue/60 group-hover:bg-neon-blue/10 transition-all duration-300">
+                <Github className="md:hidden w-4 h-4 text-neon-blue" />
+                <span className="text-sm font-medium text-neon-blue">Visit GitHub</span>
+                <ExternalLink className="w-4 h-4 text-neon-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+              </div>
+            </a>
           </div>
         </div>
       </div>

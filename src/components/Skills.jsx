@@ -103,7 +103,7 @@ export const Skills = () => {
     <section
       ref={sectionRef}
       id="skills"
-      className="relative py-20 md:py-28 overflow-hidden"
+      className="relative py-20 md:py-16 overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-10 left-1/3 w-72 h-72 rounded-full bg-neon-blue/15 blur-[120px]" />
