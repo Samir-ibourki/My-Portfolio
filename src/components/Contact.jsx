@@ -382,7 +382,7 @@ export const Contact = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative min-h-screen w-full py-24 md:py-32 overflow-hidden"
+      className="relative min-h-screen md:min-h-0 w-full py-24 md:py-16 overflow-hidden"
     >
 
       {/* background */}

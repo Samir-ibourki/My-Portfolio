@@ -69,7 +69,7 @@ export const About = () => {
     <section
       ref={sectionRef}
       id="about"
-      className="relative min-h-screen w-full md:w-[95vw] md:mx-auto py-5 mb-12 md:mb-0  overflow-hidden"
+      className="relative min-h-screen md:min-h-0 w-full md:w-[95vw] md:mx-auto py-5 mb-12 md:mb-0  overflow-hidden"
     >
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
