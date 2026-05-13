@@ -153,7 +153,7 @@ export const About = () => {
               </a>
               <a
                 href="/Samir-Ibourki-CV.pdf"
-                download
+                download="Samir-Ibourki-CV.pdf"
                 className="px-6 py-3 rounded-full gradient-border text-white font-medium hover:opacity-90 transition-opacity"
                 data-cursor-hover
               >
