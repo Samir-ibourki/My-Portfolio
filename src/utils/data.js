@@ -80,4 +80,5 @@ export const PROJECTS = [
     link: "https://github.com/Samir-ibourki/Gnawa_app",
     caseStudyLink: "#",
   },
+  
 ];

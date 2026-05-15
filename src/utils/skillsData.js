@@ -12,7 +12,8 @@ export const SKILLS = [
     category: "Frontend",
     color: "#E34F26",
     level: 98,
-    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     description: "Semantic structure and modern web standards.",
   },
   {
@@ -20,7 +21,8 @@ export const SKILLS = [
     category: "Frontend",
     color: "#1572B6",
     level: 95,
-    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
     description: "Advanced styling, animations, and layouts.",
   },
   {
@@ -28,7 +30,8 @@ export const SKILLS = [
     category: "Frontend",
     color: "#F7DF1E",
     level: 92,
-    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    iconUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     description: "ES6+, async programming, and DOM logic.",
   },
   {
@@ -112,5 +115,27 @@ export const SKILLS = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
     description: "Automated build / test / deploy.",
   },
+  {
+    name: "React Query",
+    category: "Frontend",
+    color: "#FF4154",
+    level: 88,
+iconUrl: "https://api.iconify.design/logos:react-query-icon.svg",    description: "Server state management and data fetching.",
+  },
+  {
+    name: "Axios",
+    category: "Frontend",
+    color: "#5A29E4",
+    level: 90,
+    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/axios/axios-plain.svg",
+    description: "Promise based HTTP client for the browser.",
+  },
+  {
+    name: "i18next",
+    category: "Frontend",
+    color: "#26A69A",
+    level: 85,
+iconUrl: "https://cdn.simpleicons.org/i18next/26A69A",    
+description: "Internationalization framework for React.",
+  },
 ];
-
